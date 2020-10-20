@@ -1,7 +1,7 @@
 # Project 1
 
-hosts -> /etc/ansible/hosts
-playbook.yml -> /etc/ansible/playbook.yml
+- hosts -> /etc/ansible/hosts
+- playbook.yml -> /etc/ansible/playbook.yml
 
 run using -> ansible-playbook playbook.yml
 
