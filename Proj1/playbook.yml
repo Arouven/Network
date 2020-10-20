@@ -17,21 +17,30 @@
 ##############################################################
 #change(s) on router1
 - hosts: Router1
-  gather_facts: false
+  gather_facts: true
   connection: local
+  #provider -> file that contains variables such as username and password. 
+  #define the var provider
+  #vars:
+    #provider:
+      #host:xxxx
+      #username:xxxx
+      #password:xxxx
   tasks:
     - name: configure the banner for R1
       ios_banner:
         banner: login
         text: |
           This is my super banner R1
-          ...
         state: present
     #configure loopback address on R1
-    #provider & lines definition
+
+    #lines -> 
     - name: loopback interface on R1
       ios_config:
-        provider: "{{provider}}" #file to define provider
+        #provider: "{{provider}}" #file to define provider -> no need because var [routers:vars] has already been defined in file host
+        
+        
         lines:
         - ip address 1.1.1.1 255.255.255.255
         - no shutdown
@@ -48,12 +57,10 @@
         banner: login
         text: |
           This is my super banner R2
-          ...
         state: present
 
     - name: loopback interface on R2
       ios_config:
-        provider: "{{provider}}"
         lines:
         - ip address 2.2.2.2 255.255.255.255
         - no shutdown
