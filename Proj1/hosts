@@ -1,0 +1,26 @@
+
+# Ansible Hosts file
+R1 ansible_host=10.1.1.5
+R2 ansible_host=10.1.1.2
+
+[Routers]
+R1
+R2
+
+[Router1]
+R1
+
+[Router2]
+R2
+
+[Routers:vars]
+ansible_user=John
+ansible_ssh_pass=John
+
+[Router1:vars]
+ansible_user=John
+ansible_ssh_pass=John
+
+[Router2:vars]
+ansible_user=John
+ansible_ssh_pass=John
