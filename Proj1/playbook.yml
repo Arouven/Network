@@ -10,17 +10,16 @@
         banner: login
         text: |
           This is my super banner in group [Routers]
-          ...
         state: present
 
 
 ##############################################################
 #change(s) on router1
 - hosts: Router1
-  gather_facts: true
+  gather_facts: false
   connection: local
   #provider -> file that contains variables such as username and password. 
-  #define the var provider
+  #define the var {{provider}}
   #vars:
     #provider:
       #host:xxxx
@@ -33,10 +32,9 @@
         text: |
           This is my super banner R1
         state: present
-    #configure loopback address on R1
 
     #lines -> 
-    - name: loopback interface on R1
+    - name: configure loopback interface on R1
       ios_config:
         #provider: "{{provider}}" #file to define provider -> no need because var [routers:vars] has already been defined in file host
         
@@ -59,7 +57,7 @@
           This is my super banner R2
         state: present
 
-    - name: loopback interface on R2
+    - name: configure loopback interface on R2
       ios_config:
         lines:
         - ip address 2.2.2.2 255.255.255.255
