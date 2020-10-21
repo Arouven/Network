@@ -2,6 +2,8 @@
 
 - hosts -> /etc/ansible/hosts
 - playbook.yml -> /etc/ansible/playbook.yml
+- ios images -> c3745-advipservicesk9-mz.124-25d.image
+
 
 run using command -> ansible-playbook playbook.yml
 
