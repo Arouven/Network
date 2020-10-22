@@ -32,8 +32,6 @@
         text: |
           This is my super banner R1
         state: present
-
-    #lines -> 
     - name: configure loopback interface on R1
       ios_config:
         lines:
