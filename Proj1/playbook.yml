@@ -1,8 +1,8 @@
 
 ---
 #change(s) for all routers
-- hosts: Routers
-  gather_facts: false
+- hosts: Routers #group of hosts
+  gather_facts: false #gather variables about the hosts
   connection: local
   tasks:
     - name: configure same the banner on all group Routers
@@ -36,9 +36,6 @@
     #lines -> 
     - name: configure loopback interface on R1
       ios_config:
-        #provider: "{{provider}}" #file to define provider -> no need because var [routers:vars] has already been defined in file host
-        
-        
         lines:
         - ip address 1.1.1.1 255.255.255.255
         - no shutdown
