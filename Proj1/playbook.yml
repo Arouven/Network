@@ -5,11 +5,11 @@
   gather_facts: false #gather variables about the hosts
   connection: local
   tasks:
-    - name: configure same the banner on all group Routers
-      ios_banner:
-        banner: login
+  - name: configure same the banner on all group Routers
+    ios_banner:
+      banner: login
         text: |
-          This is my super banner in group [Routers]
+            This is my super banner in group [Routers]
         state: present
 
 

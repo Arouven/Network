@@ -38,5 +38,5 @@ ansible_ssh_pass=John
 PC2
 
 [PC_apache:vars]
-ansible_user=John
-ansible_ssh_pass=John
+ansible_user=pc1
+ansible_ssh_pass=1234
