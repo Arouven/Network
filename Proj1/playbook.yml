@@ -25,16 +25,12 @@
       #host:xxxx
       #username:xxxx
       #password:xxxx
-  vars_prompt:
-    - name: R1_message
-      prompt: What is your message for R1?
-      private: no
   tasks:
     - name: configure the banner for R1
       ios_banner:
         banner: login
         text: |
-          {{R1_message}}
+          This is my super banner R1
         state: present
     - name: configure loopback interface on R1
       ios_config:
