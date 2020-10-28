@@ -1,16 +1,16 @@
 
 ---
 #change(s) for all routers
-- hosts: Routers #group of hosts
-  gather_facts: false #gather variables about the hosts
-  connection: local
-  tasks:
-    - name: configure same the banner on all group Routers
-      ios_banner:
-        banner: login
-        text: |
-          This is my super banner in group [Routers]
-        state: present
+#- hosts: Routers #group of hosts
+#  gather_facts: false #gather variables about the hosts
+#  connection: local
+#  tasks:
+#    - name: configure same the banner on all group Routers
+#      ios_banner:
+#        banner: login
+#        text: |
+#          This is my super banner in group [Routers]
+#        state: present
 
 
 ##############################################################
@@ -65,5 +65,5 @@
   become: yes #sudo: yes ##old version 
   tasks:
     - name: install apache on PC2
-      apt: name=apache2 update_cache=yes state=latest
+      apt: name=apache2 update_cache=yes state=latest #update_cache=yes -> force to check if package cache is out of date and update it
 
