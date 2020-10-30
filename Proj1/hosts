@@ -2,6 +2,7 @@
 # Ansible Hosts file
 R1 ansible_host=10.1.1.5
 R2 ansible_host=10.1.1.2
+R3 ansible_host=10.1.1.14
 PC2 ansible_host=10.1.1.10
 
 
@@ -9,6 +10,7 @@ PC2 ansible_host=10.1.1.10
 [Routers]
 R1
 R2
+R3
 
 [Routers:vars]
 ansible_user=John
@@ -29,6 +31,15 @@ ansible_ssh_pass=John
 R2
 
 [Router2:vars]
+ansible_user=John
+ansible_ssh_pass=John
+
+
+
+[Router3]
+R3
+
+[Router3:vars]
 ansible_user=John
 ansible_ssh_pass=John
 
