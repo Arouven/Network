@@ -50,5 +50,5 @@ PC2
 
 [PC_apache:vars]
 ansible_user=pc1
-ansible_ssh_pass=1234
-ansible_sudo_pass=1234
+ansible_ssh_pass=1234 #sudo apt-get install sshpass
+ansible_sudo_pass=1234 
