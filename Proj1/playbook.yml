@@ -3,7 +3,7 @@
 #change(s) for all routers
 #- hosts: Routers #group of hosts
 #  gather_facts: false #gather variables about the hosts
-#  connection: local #connection: local , delegate_to: localhost, local_action
+#  connection: local # execute tasks on the Ansible ‘controller’ instead of on a remote host #connection: local , delegate_to: localhost, local_action
 #  tasks:
 #    - name: configure same the banner on all group Routers
 #      ios_banner:
