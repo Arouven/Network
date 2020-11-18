@@ -1,3 +1,4 @@
+
 import ssl #inbuilt in python
 import OpenSSL #pip install pyOpenSSL
 import pathlib
@@ -10,7 +11,7 @@ import os
 
 def writeToExcel(nameOfMachines,today,lastBackUp,status,sheetName=str(datetime.datetime.date(datetime.datetime.now()))):
     df = pd.DataFrame({
-    'Name of Machines':nameOfMachines,
+    'Name of Machines':nameOfMachines,    
     'Today Date':today,
     'Last Backup Date':lastBackUp,
     'Longer Than 2 weeks':status,
@@ -20,21 +21,21 @@ def writeToExcel(nameOfMachines,today,lastBackUp,status,sheetName=str(datetime.d
     try:
         with pd.ExcelWriter(path + 'AuditReport.xlsx', engine="openpyxl",  mode='a') as writer:
             df.style.apply(highlight_diff,axis=None).to_excel(writer, sheet_name=sheetName, index=False)
-            writer.sheets[sheetName].column_dimensions['A'].width = 15
+            #writer.sheets['Summary'].column_dimensions['A'].width = 15
     except Exception as e:
         print("error")
 
 
-def highlight_diff(x):
+def highlight_diff(x): 
     c1 = 'background-color: red'
-    c2 = ''
+    c2 = '' 
     m = x['Longer Than 2 weeks'] != 'No'
     df1 = pd.DataFrame(c2, index=x.index, columns=x.columns)
     df1.loc[m, :] = c1
-    return df1
+    return df1 
 
-def getBackup(myString):
-    nameOfMachinesList.append(myString)
+def getBackup(myString):    
+    nameOfMachinesList.append(myString)   
     todayTime = datetime.datetime.now()
     todayDateList.append(datetime.datetime.date(todayTime))
     todayMinustwoWeeks = datetime.datetime.date(todayTime) - datetime.timedelta(weeks=2)
@@ -50,11 +51,11 @@ def getBackup(myString):
     except:
         lastBackUpDate = "Format Error"
         longerThan = "Format Error"
-
+    
     longerThan2weeks.append(longerThan)
     lastBackUpDateList.append(lastBackUpDate)
-
-
+   
+    
 
 nameOfMachinesList = []
 lastBackUpDateList = []
@@ -72,17 +73,17 @@ longerThan2weeks = []
 
 # /usr/local/linkbynet/scripts/Audit_Reseau/CR
 #writeToExcel(nameOfMachinesList,todayDateList,lastBackUpDateList,longerThan2weeks)
-path = './'
+path = '/usr/local/linkbynet/scripts/Audit_Reseau/'
+  
+# Using readlines() 
+file1 = open(path + 'CR', 'r') 
 
-# Using readlines()
-file1 = open(path + 'CR', 'r')
-
-Lines = file1.readlines()
-del Lines[0] 
+Lines = file1.readlines()   
+del Lines[0]
 del Lines[0]
 del Lines[-1]
-# Strips the newline character
-for line in Lines:
+# Strips the newline character 
+for line in Lines: 
     mystr = line.strip().replace('<br><b>Backup CKP</b><br><br>', '').replace('<br><b>Backup BIGIP</b><br><br>', '').replace('<br>', '').strip()
     #print(mystr)
     getBackup(mystr)
@@ -90,3 +91,5 @@ for line in Lines:
 writeToExcel(nameOfMachinesList,todayDateList,lastBackUpDateList,longerThan2weeks)
 
 #os.system("/bin/bash /usr/local/linkbynet/scripts/Audit_Reseau/sendmail.sh")
+
+
