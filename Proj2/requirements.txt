@@ -2,3 +2,5 @@
 pandas
 pyOpenSSL
 openpyxl
+xlsxwriter
+xlrd
