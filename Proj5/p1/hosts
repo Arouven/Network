@@ -1,0 +1,5 @@
+
+# Ansible Hosts file
+b1 ansible_host=172.19.57.55 idefix=3456
+b2 ansible_host=172.19.57.54 idefix=2345
+b3 ansible_host=172.19.173.170 idefix=1234

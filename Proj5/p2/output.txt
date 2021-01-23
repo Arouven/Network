@@ -1,0 +1,15 @@
+opening file 'Checkpoint.txt'
+
+---------
+idefix id is 18386
+Product version Check Point Gaia R77.30
+OS build 204
+OS kernel version 2.6.18-92cp
+OS edition 32-bit
+
+---------
+idefix id is 18384
+Product version Check Point Gaia R77.30
+OS build 204
+OS kernel version 2.6.18-92cp
+OS edition 32-bit

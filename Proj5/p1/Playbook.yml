@@ -1,0 +1,26 @@
+
+#pip3 install bigsuds f5-sdk
+#pip3 install paramiko
+#ansible-galaxy collection install f5networks.f5_modules
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  vars:
+    cli:
+      server: "{{ ansible_host }}"
+      user: root
+      password: ptc686grt09
+      transport: cli
+  tasks:
+    - bigip_command:
+        commands: show sys version
+        provider: "{{ cli }}"
+      register: msg_out
+    - name: version is
+      debug:
+        msg: "{{ idefix }} bigip version for {{ ansible_host }} is {{ msg_out.stdout | join('\n') | regex_search('Version .*') }}"
+
+        ##'| join("\n") | replace("Version","") | replace(" ","") }}'https://regex101.com/
+##"{{ msg_out.stdout | join('\n') | regex_search('Version .*') }}"
+
