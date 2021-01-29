@@ -153,17 +153,17 @@ def writeToExcel(ticketNumber,IDList, NameList, HostTypeList, TeamInChargeList,S
   df.to_excel(writer, sheet_name='conformity_followup_' + ticketNumber, index=False)
   writer.save()
   openFile(str('conformity_followup_' + ticketNumber + '.xlsx'))
-def getTicketNumber():
-  ticketNumber = 0
+
+def inputNumber(message):
   while True:
     try:
-      ticketNumber = int(input('Ticket Number: '))      
-      break
-    except SyntaxError:
-      ticketNumber = 0
-      print("That wasn't a number!")
-  return ticketNumber
-
+       userInput = int(input(message))       
+    except ValueError:
+       print("Not an integer! Try again.")
+       continue
+    else:
+       return userInput 
+       break 
 
 
 ##########################################
@@ -191,12 +191,12 @@ if loggedIn.ok:
 else :
   os.system('cls' if os.name == 'nt' else 'clear')
   print("Wrong Credentials")
+  input("press enter to exit")
   exit(0)
 os.system('cls' if os.name == 'nt' else 'clear')
-ticketNum = str(getTicketNumber())
+ticketNum = str(inputNumber('Ticket Number: '))
 os.system('cls' if os.name == 'nt' else 'clear')
 writeToExcel(ticketNum, IDList, NameList, HostTypeList, TeamInChargeList,SerialNumberList)
 print("\n\nIf you are using this program you owe Arouven POOLIAN a lunch!")
 input("press enter to exit ...")
-#s.close()
 exit(0)

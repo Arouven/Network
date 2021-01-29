@@ -9,8 +9,8 @@
   vars:
     cli:
       server: "{{ ansible_host }}"
-      user: root
-      password: ptc686grt09
+      user: usernamme
+      password: password
       transport: cli
   tasks:
     - bigip_command:

@@ -3,10 +3,10 @@ import pathlib
 import os
 import sys
 
-host = "89.107.170.108"
+host = "xxx.xxx.xxx.xxx"
 port = 22
-username = "admin"
-password = "ptc686grt09"
+username = "username"
+password = "password"
 command = "show version all"
 
 
